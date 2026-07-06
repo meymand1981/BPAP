@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+
+    container_name: bpap-postgres
+
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: bpap
+      POSTGRES_USER: bpap
+      POSTGRES_PASSWORD: bpap
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
